@@ -12,6 +12,9 @@ namespace AgileServer
 {
     public partial class Form1 : Form
     {
+        private static string globalconfigfile;
+        private static string macconfigpath;
+        private static string roampath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); 
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +32,15 @@ namespace AgileServer
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = true;
+            fileDialog.Title = "请选择文件";
+            fileDialog.Filter = "所有文件(*.*)|*.*";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string file = fileDialog.FileName;
+                MessageBox.Show("已选择文件:" + file, "选择文件提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
