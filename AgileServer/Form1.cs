@@ -62,6 +62,18 @@ namespace AgileServer
             }
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("你确定要关闭吗！", "提示信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);    
+            if (result == DialogResult.OK)    
+            {    
+                e.Cancel = false;  //点击OK   
+            }    
+            else  
+            {    
+                e.Cancel = true;    
+            }
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -140,6 +152,7 @@ namespace AgileServer
 
         private void button3_Click(object sender, EventArgs e)
         {
+            bool isLoad = false;
             if (string.IsNullOrWhiteSpace(this.textBox1.Text))
             {
                 MessageBox.Show(DateTime.Now.ToString() + " ERROR 11: Invalid path of global.bin!.");
@@ -196,6 +209,21 @@ namespace AgileServer
                     MessageBox.Show(DateTime.Now.ToString() + " ERROR 07：" + err.Message);
                 }  
             }
+
+            //while (true)
+            //{
+            //    if (Ping("192.168.0.1") && isLoad == true)
+            //    {
+            //        MessageBox.Show("Device config finished.");
+            //        isLoad = false;
+            //        this.richTextBox1.AppendText("INFO:Dut config finished!");
+            //        break;
+            //    }
+            //    else if (!Ping("192.168.0.1"))
+            //    {
+            //        isLoad = true;
+            //    }
+            //}
             
         }
 
@@ -319,5 +347,38 @@ namespace AgileServer
             return use;
         }
         #endregion
+
+        #region 测试样机是否重启完毕
+
+        public bool Ping(string ip)
+        {
+            System.Net.NetworkInformation.Ping p = new System.Net.NetworkInformation.Ping();
+            System.Net.NetworkInformation.PingOptions options = new System.Net.NetworkInformation.PingOptions();
+            options.DontFragment = true;
+            string data = "Test Data!";
+            byte[] buffer = Encoding.ASCII.GetBytes(data);
+            int timeout = 1000; // Timeout 时间，单位：毫秒
+            System.Net.NetworkInformation.PingReply reply = p.Send(ip, timeout, buffer, options);
+            if (reply.Status == System.Net.NetworkInformation.IPStatus.Success)
+                return true;
+            else
+                return false;
+        }
+
+        #endregion
+
+        private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Shutdown the server process now?", "Confirm information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.OK)
+            {
+                e.Cancel = false;
+                this.button4.PerformClick();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
