@@ -28,6 +28,10 @@ namespace AgileServer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (Environment.UserName != "Administrator")
+            {
+                MessageBox.Show("ERROR 14: You must run this program as Administrator!");
+            }
             //MessageBox.Show(roampath);
             if (!Directory.Exists(roampath))
             {
@@ -54,6 +58,10 @@ namespace AgileServer
             }
 
             string logPath = Application.StartupPath+@"\log";
+            if (!Directory.Exists(logPath))
+            {
+                Directory.CreateDirectory(logPath);
+            }
             DirectoryInfo dyInfo = new DirectoryInfo(logPath);
             foreach (FileInfo feInfo in dyInfo.GetFiles())
             {
@@ -152,23 +160,26 @@ namespace AgileServer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            bool isLoad = false;
             if (string.IsNullOrWhiteSpace(this.textBox1.Text))
             {
                 MessageBox.Show(DateTime.Now.ToString() + " ERROR 11: Invalid path of global.bin!.");
+                return;
             }
             else if (string.IsNullOrWhiteSpace(this.textBox2.Text))
             {
                 MessageBox.Show(DateTime.Now.ToString() + " ERROR 11: Invalid path of MACBIN dir!.");
+                return;
             }
 
             if (CheckPort("67"))
             {
                 MessageBox.Show(DateTime.Now.ToString() + " ERROR 09: Essential port 67 was occupied now!.");
+                return;
             }
             else if(CheckPort("69"))
             {
                 MessageBox.Show(DateTime.Now.ToString() + " ERROR 10: Essential port 69 was occupied now!.");
+                return;
             }
             else
             {
@@ -251,6 +262,13 @@ namespace AgileServer
         
         }
 
+        private void FormMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F8)
+            {
+                MessageBox.Show("Key pressed"); //满足条件后执行事件
+            }
+        }
 
         private void Dhcp_Exited(object sender, EventArgs e)
         {
