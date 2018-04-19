@@ -43,6 +43,10 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.advanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tFTPConfigureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dHCPConfigureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.telnetResetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.envTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -143,8 +147,37 @@
             // 
             // advanceToolStripMenuItem
             // 
+            this.advanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tFTPConfigureToolStripMenuItem,
+            this.dHCPConfigureToolStripMenuItem,
+            this.telnetResetToolStripMenuItem,
+            this.envTestToolStripMenuItem});
             this.advanceToolStripMenuItem.Name = "advanceToolStripMenuItem";
             resources.ApplyResources(this.advanceToolStripMenuItem, "advanceToolStripMenuItem");
+            // 
+            // tFTPConfigureToolStripMenuItem
+            // 
+            this.tFTPConfigureToolStripMenuItem.Name = "tFTPConfigureToolStripMenuItem";
+            resources.ApplyResources(this.tFTPConfigureToolStripMenuItem, "tFTPConfigureToolStripMenuItem");
+            this.tFTPConfigureToolStripMenuItem.Click += new System.EventHandler(this.tFTPConfigureToolStripMenuItem_Click);
+            // 
+            // dHCPConfigureToolStripMenuItem
+            // 
+            this.dHCPConfigureToolStripMenuItem.Name = "dHCPConfigureToolStripMenuItem";
+            resources.ApplyResources(this.dHCPConfigureToolStripMenuItem, "dHCPConfigureToolStripMenuItem");
+            this.dHCPConfigureToolStripMenuItem.Click += new System.EventHandler(this.dHCPConfigureToolStripMenuItem_Click);
+            // 
+            // telnetResetToolStripMenuItem
+            // 
+            this.telnetResetToolStripMenuItem.Name = "telnetResetToolStripMenuItem";
+            resources.ApplyResources(this.telnetResetToolStripMenuItem, "telnetResetToolStripMenuItem");
+            this.telnetResetToolStripMenuItem.Click += new System.EventHandler(this.telnetResetToolStripMenuItem_Click);
+            // 
+            // envTestToolStripMenuItem
+            // 
+            this.envTestToolStripMenuItem.Name = "envTestToolStripMenuItem";
+            resources.ApplyResources(this.envTestToolStripMenuItem, "envTestToolStripMenuItem");
+            this.envTestToolStripMenuItem.Click += new System.EventHandler(this.envTestToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -186,6 +219,10 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem advanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tFTPConfigureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dHCPConfigureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem telnetResetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem envTestToolStripMenuItem;
 
     }
 }

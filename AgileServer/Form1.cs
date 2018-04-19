@@ -20,7 +20,9 @@ namespace AgileServer
         public int DHCP_PID { get; set; }
         public int TFTP_PID { get; set; }
         private static string directoryPath = Application.StartupPath+@"\diagnostic";
-        private static string roampath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Agileconfig"; 
+        private static string roampath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Agileconfig";
+        private static string tftpConfig = Application.StartupPath + @"\OpenTFTPServerMT.ini";
+        private static string dhcpConfig = Application.StartupPath + @"\OpenDHCPServer.ini";
         public Form1()
         {
             InitializeComponent();
@@ -385,6 +387,12 @@ namespace AgileServer
 
         #endregion
 
+        public bool TestEnv()
+        {
+
+            return true;
+        }
+
         private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Shutdown the server process now?", "Confirm information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -397,6 +405,26 @@ namespace AgileServer
             {
                 e.Cancel = true;
             }
+        }
+
+        private void tFTPConfigureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad",tftpConfig);
+        }
+
+        private void dHCPConfigureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad", dhcpConfig);
+        }
+
+        private void telnetResetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void envTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
