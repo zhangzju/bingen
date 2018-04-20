@@ -409,6 +409,8 @@ namespace AgileServer
 
         private void tFTPConfigureToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            System.Windows.Forms.Clipboard.SetText(roampath);
+            //MessageBox.Show(roampath);
             System.Diagnostics.Process.Start("notepad",tftpConfig);
         }
 
@@ -424,7 +426,10 @@ namespace AgileServer
 
         private void envTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (TestEnv() == false)
+            {
+                MessageBox.Show("ERROR 11: Env test failed, please shutdown the firewall!.");
+            }
         }
     }
 }
