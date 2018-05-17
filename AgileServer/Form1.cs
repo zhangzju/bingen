@@ -20,7 +20,7 @@ namespace AgileServer
         public int DHCP_PID { get; set; }
         public int TFTP_PID { get; set; }
         private static string directoryPath = Application.StartupPath+@"\diagnostic";
-        private static string roampath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Agileconfig";
+        private static string roampath = @"c:\Agileconfig";
         private static string tftpConfig = Application.StartupPath + @"\OpenTFTPServerMT.ini";
         private static string dhcpConfig = Application.StartupPath + @"\OpenDHCPServer.ini";
         public Form1()
