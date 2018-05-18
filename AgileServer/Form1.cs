@@ -308,7 +308,16 @@ namespace AgileServer
             DirectoryInfo directorySelected = new DirectoryInfo(Application.StartupPath+@"\log");
             Compress(directorySelected);
 
-            System.IO.File.Copy("Agile-config-diagnostic.gz", roampath + @"\" + Path.GetFileName("Agile-config-diagnostic.gz"), true);
+            if (File.Exists(roampath + @"\Agile-config-diagnostic.gz"))
+            {
+                System.IO.File.Copy("Agile-config-diagnostic.gz", roampath + @"\" + Path.GetFileName("Agile-config-diagnostic.gz"), true);
+                MessageBox.Show("Diagnostic file was copied to clipboard.");
+            }
+            else
+            {
+                MessageBox.Show("Tips: You have not run the server yet, no diagnostic file created!");
+            }
+            
         }
 
         public static void Compress(DirectoryInfo directorySelected)
