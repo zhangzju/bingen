@@ -47,6 +47,7 @@
             this.dHCPConfigureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telnetResetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.envTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -141,7 +142,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.advanceToolStripMenuItem});
+            this.advanceToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -178,6 +180,12 @@
             this.envTestToolStripMenuItem.Name = "envTestToolStripMenuItem";
             resources.ApplyResources(this.envTestToolStripMenuItem, "envTestToolStripMenuItem");
             this.envTestToolStripMenuItem.Click += new System.EventHandler(this.envTestToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -223,6 +231,7 @@
         private System.Windows.Forms.ToolStripMenuItem dHCPConfigureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem telnetResetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem envTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 
     }
 }

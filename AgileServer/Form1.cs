@@ -30,10 +30,10 @@ namespace AgileServer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (Environment.UserName != "Administrator")
-            {
-                MessageBox.Show("ERROR 14: You must run this program as Administrator!");
-            }
+            //if (Environment.UserName != "Administrator")
+            //{
+            //    MessageBox.Show("ERROR 14: You must run this program as Administrator!");
+            //}
             //MessageBox.Show(roampath);
             if (!Directory.Exists(roampath))
             {
@@ -439,6 +439,12 @@ namespace AgileServer
             {
                 MessageBox.Show("ERROR 11: Env test failed, please shutdown the firewall!.");
             }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 about = new AboutBox1();
+            about.Show();
         }
     }
 }
